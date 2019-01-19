@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8"">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('/static/image22.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.image {
+	position: relative;
+	margin: 15px 15px;
+}
+.unstyled {
+	width:70%;
+	border: none;
+	background-color: rgba(255,255,255,.6)
+}
+.roundbutton {
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    border-radius: 50%;
+    color:inherit;
+    background-color:inherit;
+}
+.opacity{animation:opac 1.0s} opac{from{opacity:0} to{opacity:1}}
+</style>
+
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
+  <div class="w3-display-topleft w3-padding-large w3-large">
+    <button class="w3-button w3-round" style="color:black;" >Home</button>
+  </div>
+  <div class="w3-display-middle">
+    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Your Home Value</b>
+    <h1><p align="center" style="color:black;"> Select house information: </p></h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <form class="w3-container" method=post name=userinput action="{{ url_for('print')}}">
+    <p>
+      <div>
+          <select name="OverallQual" id="Qual" class="form-control unstyled">
+            <option>
+                OverallQual
+            </option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>
+            <option value="5" >5</option>
+            <option value="6" >6</option>
+            <option value="7" >7</option>
+            <option value="8" >8</option>
+            <option value="9" >9</option>
+            <option value="10" >10</option>
+        </select>
+      </div>
+      <div>
+          <select name="GrLivArea" id="GrLivArea" class="form-control unstyled">
+            <option>
+                GrLivArea
+            </option>
+            <option value="50" >50</option>
+            <option value="100" >100</option>
+            <option value="150" >150</option>
+            <option value="200" >200</option>
+            <option value="300" >300</option>
+            <option value="500" >500</option>  
+            <option value="600" >600</option>
+            <option value="700" >700</option>
+            <option value="800" >800</option>
+            <option value="900" >900</option>
+            <option value="1000" >1000</option>
+            <option value="1500" >1500</option>                    
+            <option value="2000" >2000</option>                    
+            <option value="2500" >2500</option>                    
+            <option value="3000" >3000</option>                     
+        </select>
+      </div>
+      <div>
+        <select name="GarageCars" id="GarageCars" class="form-control unstyled">
+            <option>
+                Garage Cars
+            </option>
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+            <option value="4" >4</option>                  
+        </select>
+      </div>
+
+      <div>
+          <select name="YearBuilt" id="YearBuilt" class="form-control unstyled">
+            <option>
+                Year Built
+            </option>
+            <option value="1900" >1900</option>
+            <option value="1910" >1910</option>
+            <option value="1920" >1920</option>
+            <option value="1930" >1930</option>
+            <option value="1940" >1940</option>
+            <option value="1950" >1950</option>
+            <option value="1960" >1960</option>
+            <option value="1970" >1970</option>
+            <option value="1980" >1980</option>
+            <option value="1990" >1990</option>
+            <option value="2000" >2000</option>
+            <option value="2010" >2010</option>                
+            <option value="2015" >2015</option>                
+        </select>
+      </div>
+      
+      <div>
+            <select name="FullBath" id="FullBath" class="form-control unstyled">
+            <option>
+                Full Bath
+            </option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>              
+        </select>
+      </div>
+
+
+    <p align="center">
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Go
+    </button> </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
