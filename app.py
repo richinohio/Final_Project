@@ -28,4 +28,9 @@ def result():
         result = VacantPredictor(to_predict_list)
 
         if int(result)==1:
-            prediction
+            prediction = 'occupied'
+        
+        else:
+            prediction = 'vacant'
+
+    return render_template("result.html",prediction=prediction)
