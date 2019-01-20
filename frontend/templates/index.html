@@ -44,60 +44,40 @@ body, html {height: 100%}
     <button class="w3-button w3-round" style="color:black;" >Home</button>
   </div>
   <div class="w3-display-middle">
-    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Your Home Value</b>
-    <h1><p align="center" style="color:black;"> Select house information: </p></h1>
+    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Property Predictor</b>
+    <h1><p align="center" style="color:black;"> Select property information: </p></h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
     <form class="w3-container" method=post name=userinput action="{{ url_for('print')}}">
     <p>
       <div>
-          <select name="OverallQual" id="Qual" class="form-control unstyled">
+          <select name="Property Name" id="Prop" class="form-control unstyled">
             <option>
-                OverallQual
+                Property:
             </option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
-            <option value="4" >4</option>
-            <option value="5" >5</option>
-            <option value="6" >6</option>
-            <option value="7" >7</option>
-            <option value="8" >8</option>
-            <option value="9" >9</option>
-            <option value="10" >10</option>
         </select>
       </div>
       <div>
-          <select name="GrLivArea" id="GrLivArea" class="form-control unstyled">
+          <select name="Bedrooms" id="Beds" class="form-control unstyled">
             <option>
-                GrLivArea
+                Bedrooms:
             </option>
-            <option value="50" >50</option>
-            <option value="100" >100</option>
-            <option value="150" >150</option>
-            <option value="200" >200</option>
-            <option value="300" >300</option>
-            <option value="500" >500</option>  
-            <option value="600" >600</option>
-            <option value="700" >700</option>
-            <option value="800" >800</option>
-            <option value="900" >900</option>
-            <option value="1000" >1000</option>
-            <option value="1500" >1500</option>                    
-            <option value="2000" >2000</option>                    
-            <option value="2500" >2500</option>                    
-            <option value="3000" >3000</option>                     
-        </select>
-      </div>
-      <div>
-        <select name="GarageCars" id="GarageCars" class="form-control unstyled">
-            <option>
-                Garage Cars
-            </option>
-            <option value="0" >0</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
-            <option value="3" >3</option>
-            <option value="4" >4</option>                  
+            <option value="3" >3</option>                     
+        </select>
+      </div>
+      <div>
+        <select name="Bathrooms" id="Baths" class="form-control unstyled">
+            <option>
+                Bathrooms:
+            </option>
+            <option value="1" >1</option>
+            <option value="1.5" >1.5</option>
+            <option value="2" >2</option>
+            <option value="2.5" >2.5</option>                  
         </select>
       </div>
 
@@ -136,7 +116,10 @@ body, html {height: 100%}
 
 
     <p align="center">
-    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Go
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Vacant or Occupy
+    </button> </p>
+    <p align="center">
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Length of Stay
     </button> </p>
     </form>
   </div>
