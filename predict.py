@@ -7,30 +7,30 @@ warnings.simplefilter('ignore')
 import numpy as np
 import pickle
 
-def prediction(OverallQual, GrLivArea, GarageCars,YearBuilt,FullBath):
+def prediction_lin(Property_Code, BedRooms, Bathroom,SQFT):
     
     # Create of row of data that comabines all user inputs
-    title={"OverallQual":[OverallQual], "GrLivArea":[GrLivArea], "GarageCars":[GarageCars],"YearBuilt":[YearBuilt],"FullBath":[FullBath]}
-    test = pd.DataFrame(title)
+    title_lin={"Property_Code":[Property_Code], "BedRooms":[BedRooms], "Bathroom":[Bathroom],"SQFT":[SQFT]}
+    test_lin = pd.DataFrame(title_lin)
 
     #import pickled model
-    trained_model = joblib.load('model.pkl')
+    trained_model_lin = joblib.load('model.pkl')
 
     # Make prediction from the loaded random forest model
-    predict = trained_model.predict(test)[0]
-    result="${:,.2f}".format(predict)
-    return result
+    predict_lin = trained_model_lin.predict(test_lin)[0]
+    result_lin="${:,.2f}".format(predict_lin)
+    return result_lin
 
-def prediction(OverallQual, GrLivArea, GarageCars,YearBuilt,FullBath):
+def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):
     
     # Create of row of data that comabines all user inputs
-    title={"OverallQual":[OverallQual], "GrLivArea":[GrLivArea], "GarageCars":[GarageCars],"YearBuilt":[YearBuilt],"FullBath":[FullBath]}
-    test = pd.DataFrame(title)
+    title_log={"Property_Code":[Property_Code], "BedRooms":[BedRooms], "Bathroom":[Bathroom],"SQFT":[SQFT],"chrent":[chrent]}
+    test_log = pd.DataFrame(title_log)
 
     #import pickled model
-    trained_model = joblib.load('model.pkl')
+    trained_model_log = joblib.load('model.pkl')
 
     # Make prediction from the loaded random forest model
-    predict = trained_model.predict(test)[0]
-    result="${:,.2f}".format(predict)
-    return result
+    predict_log = trained_model_log.predict(test_log)[0]
+    result_log="${:,.2f}".format(predict_log)
+    return result_log
