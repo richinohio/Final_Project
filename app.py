@@ -1,36 +1,48 @@
+from flask import Flask, render_template, request, session, g, redirect, url_for, abort, \
+     render_template, flash
 import os
-import numpy as numpy
-import flask
-import pickle
-from flask import Flask, render_template, request
+from predict import prediction_log, prediction_lin
 
-#creating instances of the class
-app=Flask(__name__)
+app1 = Flask(__name__)
 
-#to tell flask what url should trigger the function index()
-@app.route('/')
-@app.route('/index')
-def index():
-    return flask.render_template('index.html')
+@app1.route('/', methods=['GET'])
+def mainpage():
+    return render_template('index.html')
 
-#prediction function
-def VacantPredictor(to_predict_list):
-    to_predict = np.array(to_predict_list).reshape(1,12)
-    loaded_model = pickle.load(open("model.pkl"))
-    return result[0]
+@app1.route('/',methods=['POST'])
+def print():
+    att1 = request.form['Property_Code']
+    att2 = request.form['BedRooms']
+    att3 = request.form['Bathroom']
+    att4 = request.form['SQFT']
 
-@app.route('/result',methods = ['POST'])
-def result():
-    if request.method == 'POST':
-        to_predict_list = request.form.to_dict()
-        to_predict_list = list(to_predict_list.values())
-        to_predict_list = list(map(int, to_predict_list))
-        result = VacantPredictor(to_predict_list)
+#predictive function using model.prediction
+rent_pred = prediction_lin(att1,att2,att3,att4)
 
-        if int(result)==1:
-            prediction = 'occupied'
-        
-        else:
-            prediction = 'vacant'
+return render_template('result_lin.html', result=rent_pred)
 
-    return render_template("result.html",prediction=prediction)
+app2 = Flask(__name__)
+
+@app2.route('/', methods=['GET'])
+def mainpage():
+    return render_template('index.html')
+
+@app2.route('/',methods=['POST'])
+def print():
+    att1 = request.form['Property_Code']
+    att2 = request.form['BedRooms']
+    att3 = request.form['Bathroom']
+    att4 = request.form['SQFT']
+    att5 = request.form['chrent']
+
+#predictive function using model.prediction
+vacancy_pred = prediction_log(att1,att2,att3,att4,att5) 
+
+return render_template('result_log.html', result=LOS_pred)
+
+if __name__ == '__main__':
+    app1.run(port=5000, debug=True)
+    app2.run(port=8000, debug=True)
+
+
+

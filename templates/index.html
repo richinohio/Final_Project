@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8"">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url("static/image22.jpg");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.image {
+	position: relative;
+	margin: 15px 15px;
+}
+.unstyled {
+	width:70%;
+	border: none;
+	background-color: rgba(255,255,255,.6)
+}
+.roundbutton {
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    border-radius: 50%;
+    color:inherit;
+    background-color:inherit;
+}
+.opacity{animation:opac 1.0s} opac{from{opacity:0} to{opacity:1}}
+</style>
+
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
+  <div class="w3-display-topleft w3-padding-large w3-large">
+    <a button class="w3-button w3-round" style="color:black;" href="Cover.html">Home</button></a>
+  </div>
+  <div class="w3-display-middle">
+    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Housing Predictions</b>
+    <h1><p align="center" style="color:black;"> Select apartment information: </p></h1>
+    <hr class="w3-border-grey" style="margin:auto;width:50%">
+    <form class="w3-container" method=post name=userinput action="{{ url_for('print')}}">
+    <p>
+      <div>
+          <select name="Property" id="Property Name" class="form-control unstyled">
+            <option>
+                Property
+            </option>
+            <option value="1" >Shady Haven</option>
+            <option value="2" >Metro Park Gardens</option>
+            <option value="3" >Friendly Homes</option>
+            <option value="4" >Community Estates</option>
+            
+        </select>
+      </div>
+      <div>
+          <select name="Bedrooms" id="Bedrooms" class="form-control unstyled">
+            <option>
+                Bedroom
+            </option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+                              
+        </select>
+      </div>
+      <div>
+        <select name="Bathroom" id="Bathrooms" class="form-control unstyled">
+            <option>
+                Bathroom
+            </option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="2.5" >2.5</option>
+                            
+        </select>
+      </div>
+      
+      <div class="form-group">
+            <label for="exampleInputAmount" style="color:black;">Square Footage</label>
+            <input type="number" class="form-control" id="exampleInputAmount" placeholder="Sq ft">
+      </div>
+
+      <div class="form-group form-group-sm">
+            <label for="exampleInputAmount" style="color:black;"> Rent</label>
+            <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      </div>
+
+     
+    
+      
+
+    <p align="center">
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Linear Regression
+    </button> 
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Logistic Regression
+    </button>
+    </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
