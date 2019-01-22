@@ -58,61 +58,50 @@ body, html {height: 100%}
     <p>
       <div>
           <select name="Property_Code" id="Property_Code" class="form-control unstyled">
-            <option>
-                Property
-            </option>
-            <option value="1" >sh</option>
-            <option value="2" >mpg</option>
-            <option value="3" >fh</option>
-            <option value="4" >ce</option>
-            
-        </select>
+              <option>Property</option>
+              <option value="0" >sh</option>
+              <option value="1" >mpg</option>
+              <option value="2" >fh</option>
+              <option value="3" >ce</option>
+            </select>
       </div>
       <div>
           <select name="BedRooms" id="BedRooms" class="form-control unstyled">
-            <option>
-                Bedroom
-            </option>
+            <option>Bedrooms</option>
             <option value="0" >0</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
-                              
-        </select>
-      </div>
-      <div>
-        <select name="Bathroom" id="Bathrooms" class="form-control unstyled">
-            <option>
-                Bathroom
-            </option>
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-            <option value="1.5" >1.5</option>
-            <option value="2" >2</option>
-            <option value="2.5" >2.5</option>
                             
         </select>
       </div>
-      
-      <div class="form-group">
-            <label for="exampleInputAmount" style="color:black;">Square Footage</label>
-            <input type="number" class="form-control" id="exampleInputAmount" placeholder="Sq ft">
+      <div>
+          <select name="Bathroom" id="Bathroom" class="form-control unstyled">
+            <option>Bathrooms</option>
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+            <option value="2" >1.5</option>
+            <option value="3" >2</option>
+            <option value="4" >2.5</option>
+                            
+        </select>
       </div>
-
-      <div class="form-group form-group-sm">
-            <label for="exampleInputAmount" style="color:black;"> Rent</label>
-            <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
-      </div>
-
-     
-    
-      
+ 
+      <div>
+         <select name="SQFT" id="SQFT" class="form-control unstyled">
+           <option>Square Footage</option>
+           <option value="0" >500</option>
+           <option value="1" >600</option>
+           <option value="2" >700</option>
+           <option value="3" >800</option>
+           <option value="4" >900</option>
+                              
+         </select>
+     </div>
 
     <p align="center">
     <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Linear Regression
     </button> 
-    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Logistic Regression
-    </button>
     </p>
     </form>
   </div>
