@@ -7,7 +7,7 @@ app1 = Flask(__name__)
 
 @app1.route('/', methods=['GET'])
 def mainpage():
-    return render_template('index.html')
+    return render_template('index_lin.html')
 
 @app1.route('/',methods=['POST'])
 def print():
@@ -25,7 +25,7 @@ app2 = Flask(__name__)
 
 @app2.route('/', methods=['GET'])
 def mainpage():
-    return render_template('index.html')
+    return render_template('index_log.html')
 
 @app2.route('/',methods=['POST'])
 def print():
