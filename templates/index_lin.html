@@ -57,22 +57,23 @@ body, html {height: 100%}
     <form class="w3-container" method=post name=userinput action="{{ url_for('print')}}">
     <p>
       <div>
-          <select name="Property" id="Property Name" class="form-control unstyled">
+          <select name="Property_Code" id="Property_Code" class="form-control unstyled">
             <option>
                 Property
             </option>
-            <option value="1" >Shady Haven</option>
-            <option value="2" >Metro Park Gardens</option>
-            <option value="3" >Friendly Homes</option>
-            <option value="4" >Community Estates</option>
+            <option value="1" >sh</option>
+            <option value="2" >mpg</option>
+            <option value="3" >fh</option>
+            <option value="4" >ce</option>
             
         </select>
       </div>
       <div>
-          <select name="Bedrooms" id="Bedrooms" class="form-control unstyled">
+          <select name="BedRooms" id="BedRooms" class="form-control unstyled">
             <option>
                 Bedroom
             </option>
+            <option value="0" >0</option>
             <option value="1" >1</option>
             <option value="2" >2</option>
             <option value="3" >3</option>
@@ -84,7 +85,9 @@ body, html {height: 100%}
             <option>
                 Bathroom
             </option>
+            <option value="0" >0</option>
             <option value="1" >1</option>
+            <option value="1.5" >1.5</option>
             <option value="2" >2</option>
             <option value="2.5" >2.5</option>
                             
