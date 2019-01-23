@@ -12,8 +12,8 @@ def mainpage():
 @app1.route('/',methods=['POST'])
 def print():
     att1 = request.form['Property_Code']
-    att2 = request.form['BedRooms']
-    att3 = request.form['Bathroom']
+    att2 = request.form['Bedrooms']
+    att3 = request.form['Bathrooms']
     att4 = request.form['SQFT']
     
     #predictive function using model.prediction

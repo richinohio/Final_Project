@@ -16,10 +16,10 @@ import numpy as np
 import pickle
 
 
-def prediction_lin(Property_Code, BedRooms, Bathroom,SQFT):
+def prediction_lin(Property_Code, Bedrooms, Bathrooms,SQFT):
     
     # Create of row of data that comabines all user inputs
-    title_lin={"Property_Code":[Property_Code], "BedRooms":[BedRooms], "Bathroom":[Bathroom],"SQFT":[SQFT]}
+    title_lin={"Property_Code":[Property_Code], "Bedrooms":[Bedrooms], "Bathrooms":[Bathrooms],"SQFT":[SQFT]}
     test_lin = pd.DataFrame(title_lin)
 
     #import pickled model
