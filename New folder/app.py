@@ -4,13 +4,13 @@ import os
 from predict import prediction_lin
 
 import sys
-app1 = Flask(__name__)
+app = Flask(__name__)
 
-@app1.route('/', methods=['GET'])
+@app.route('/linear', methods=['GET'])
 def mainpage():
     return render_template('index_lin.html')
 
-@app1.route('/',methods=['POST'])
+@app.route('/linear',methods=['POST'])
 def posst():
     att1 = int(request.form['Property_Code'])
     if att1 == 0:
@@ -51,6 +51,42 @@ def posst():
     rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
     return render_template('result_lin.html', result=rent_pred),att2
 
+@app.route('/logistic', methods=['GET'])
+def logindex():
+    return render_template('index_log.html')
+
+@app.route('/logistic',methods=['POST'])
+def logfunc():
+    att1 = int(request.form['Property_Code'])
+    if att1 == 0:
+        apt1 =1
+        apt2 =0
+        apt3 =0
+        apt4 =0
+    elif att1 ==1:
+        apt1 =0
+        apt2 =1
+        apt3 =0
+        apt4 =0
+    elif att1 ==2:
+        apt1 =0
+        apt2 =0
+        apt3 =1
+        apt4 =0
+    elif att1 ==3:
+        apt1 =0
+        apt2 =0
+        apt3 =0
+        apt4 =1
+    att2 = int(request.form['BedRooms'])
+    att3 = float(request.form['Bathrooms'])
+    att4 = int(request.form['SQFT'])
+    att5 = int(request.form['exampleInputAmount'])
+    print(att4)
+    #predictive function using model.prediction
+    #rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
+    #return render_template('result_lin.html', result=rent_pred),att2
+
 """
 app2 = Flask(__name__)
 
@@ -72,4 +108,4 @@ def print():
 """
 
 if __name__ == '__main__':
-    app1.run(port=5000, debug=True)   
+    app.run(port=5000, debug=True)   
