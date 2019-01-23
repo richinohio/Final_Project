@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, g, redirect, url_for, abort, \
      render_template, flash
 import os
-from predict import prediction_lin
+from predict import prediction_lin, prediction_log
 
 import sys
 app = Flask(__name__)
@@ -49,7 +49,7 @@ def posst():
     print(att4, file=sys.stderr)
     #predictive function using model.prediction
     rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
-    return render_template('result_lin.html', result=rent_pred),att2
+    return render_template('result_lin.html', result=rent_pred)
 
 @app.route('/logistic', methods=['GET'])
 def logindex():
@@ -58,35 +58,40 @@ def logindex():
 @app.route('/logistic',methods=['POST'])
 def logfunc():
     att1 = int(request.form['Property_Code'])
-    if att1 == 0:
+    if att1 == 1:
         apt1 =1
         apt2 =0
         apt3 =0
         apt4 =0
-    elif att1 ==1:
+    elif att1 ==2:
         apt1 =0
         apt2 =1
         apt3 =0
         apt4 =0
-    elif att1 ==2:
+    elif att1 ==3:
         apt1 =0
         apt2 =0
         apt3 =1
         apt4 =0
-    elif att1 ==3:
+    elif att1 ==4:
         apt1 =0
         apt2 =0
         apt3 =0
         apt4 =1
     att2 = int(request.form['BedRooms'])
-    att3 = float(request.form['Bathrooms'])
+    att3 = float(request.form['Bathroom'])
     att4 = int(request.form['SQFT'])
     att5 = int(request.form['exampleInputAmount'])
     print(att4)
     #predictive function using model.prediction
     #rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
     #return render_template('result_lin.html', result=rent_pred),att2
-
+    occ_pred = prediction_log()
+    if occ_pred == [0]:
+        occ_pred = "Occupied"
+    else:
+        occ_pred = "Vacant"
+    return render_template('result_log.html',result=occ_pred)
 """
 app2 = Flask(__name__)
 
