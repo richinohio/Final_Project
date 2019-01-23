@@ -6,12 +6,16 @@ from predict import prediction_lin
 import sys
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def mainpage():
+@app.route('/')
+def home():
+    return render_template('cover.html')
+
+@app.route('/linear', methods=['GET'])
+def linindex():
     return render_template('index_lin.html')
 
-@app.route('/', methods=['POST'])
-def post():
+@app.route('/linear', methods=['POST'])
+def linfunc():
     att1 = int(request.form['Property_Code'])
     if att1 == 0:
         apt1 =1
@@ -37,17 +41,16 @@ def post():
     att3 = float(request.form['Bathrooms'])
     att4 = int(request.form['SQFT'])
   
-    print(att4, file=sys.stderr)
     #predictive function using model.prediction
     rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,att4)
     return render_template('result_lin.html', result=rent_pred)
-'''
-@app.route('/log', methods=['GET'])
-def mainpage():
+
+@app.route('/logistic', methods=['GET'])
+def logindex():
     return render_template('index_log.html')
 
-@app.route('/log', methods=['POST'])
-def post():
+@app.route('/logistic',methods=['POST'])
+def logfunc():
     att1 = int(request.form['Property_Code'])
     if att1 == 0:
         apt1 =1
@@ -69,24 +72,14 @@ def post():
         apt2 =0
         apt3 =0
         apt4 =1
-    att2 = int(request.form['Bedrooms'])
-    att3 = int(request.form['Bathrooms'])
+    att2 = int(request.form['BedRooms'])
+    att3 = float(request.form['Bathrooms'])
     att4 = int(request.form['SQFT'])
-    if att4 == 0:
-        sqft = 500
-    elif att4 == 1:
-        sqft = 600
-    elif att4 == 2:
-        sqft = 700
-    elif att4 == 3:
-        sqft = 800
-    elif att4 == 4:
-        sqft = 900
-    print(att4, file=sys.stderr)
-    #predictive function using model.prediction
-    rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
-    return render_template('result_log.html', result=rent_pred),att2
+    att5 = int(request.form['exampleInputAmount'])
 '''
-
+    #predictive function using model.prediction
+    vac_pred = prediction_log(apt1,apt2,apt3,apt4,att2,att3,att4)
+    return render_template('result_lin.html', result=vac_pred)
+'''
 if __name__ == '__main__':
     app.run(port=5000, debug=True)   
