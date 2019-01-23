@@ -17,7 +17,7 @@ import pickle
 
 
 #def prediction_lin(Property_Code, Bedrooms, Bathrooms,SQFT):
-def prediction_lin(Property_Code, Bedrooms, Bathrooms,SQFT):
+def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
     # Create of row of data that comabines all user inputs
     #title_lin={"Property_Code":[Property_Code], "Bedrooms":[Bedrooms], "Bathrooms":[Bathrooms],"SQFT":[SQFT]}
     #test_lin = pd.DataFrame(title_lin)
@@ -26,7 +26,7 @@ def prediction_lin(Property_Code, Bedrooms, Bathrooms,SQFT):
     trained_model_lin = pickle.load(open('models/linear_model.pkl','rb'))
 
     # Make prediction from the loaded random forest model
-    predict_lin = trained_model_lin.predict([[propertycode[0],propertycode[1],0,1,1,2.5,1000]])
+    predict_lin = trained_model_lin.predict([[Property_Code1,p2,p3,p4,Bedrooms,1,SQFT]])
     #result_lin="${:,.2f}".format(predict_lin)
     return predict_lin
 
