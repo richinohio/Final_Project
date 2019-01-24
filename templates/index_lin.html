@@ -14,6 +14,15 @@
 <link rel="stylesheet" href="static/css/index.css">
 <title>Linear Regression Analysis</title>
 
+<style>
+.bgimg {
+  background-image: url("static/images/background.png");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+
 <body>
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
@@ -22,8 +31,8 @@
     <a button class="w3-button w3-round" style="color:black;" href="logistic">Logistic Regression</button></a>
   </div>
   <div class="w3-display-middle">
-    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Property Predictions</b>
-    <h1><p align="center" style="color:black;"> Select property information: </p></h1>
+    <b class="w3-xxxlarge w3-animate-top w3-center" style="color:black;">Property Predictions</b>
+    <h2><p align="center" style="color:black;"> Select property information: </p></h2>
     <hr class="w3-border-grey" style="margin:auto;width:50%">
     <form class="w3-container" method=post name=userinput action="{{ url_for('linfunc')}}">
     <p>
