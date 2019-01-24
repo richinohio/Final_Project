@@ -29,10 +29,10 @@ def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
     predict_lin = trained_model_lin.predict([[Property_Code1,p2,p3,p4,Bedrooms,1,SQFT]])
     #result_lin="${:,.2f}".format(predict_lin)
     return predict_lin
-def prediction_log():
-    trained_model_log = pickle.load(open('models/logisitic_deep_network.pkl','rb'))
-    predict_log = trained_model_log.predict_classes([[[3,2.5,26.0,0,0,1,1,0,0,0]]])
-
+def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent): 
+    trained_model_log = pickle.load(open('models/logisitic_depp_network.pkl','rb'))
+    #predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
+    predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     return predict_log
 """
 def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):

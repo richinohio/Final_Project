@@ -86,7 +86,7 @@ def logfunc():
     #predictive function using model.prediction
     #rent_pred = prediction_lin(apt1,apt2,apt3,apt4,att2,att3,sqft)
     #return render_template('result_lin.html', result=rent_pred),att2
-    occ_pred = prediction_log()
+    occ_pred = prediction_log(apt1,apt2,apt3,apt4,att2,att3,att4,att5)
     if occ_pred == [0]:
         occ_pred = "Occupied"
     else:
