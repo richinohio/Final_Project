@@ -7,6 +7,8 @@ from sklearn.metrics import mean_squared_error
 from keras.utils import to_categorical
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.backend import clear_session
+import tensorflow as tf
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
@@ -29,14 +31,13 @@ def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
     predict_lin = trained_model_lin.predict([[Property_Code1,p2,p3,p4,Bedrooms,1,SQFT]])
     #result_lin="${:,.2f}".format(predict_lin)
     return predict_lin
-def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent): 
-    trained_model_log = pickle.load(open('models/logisitic_depp_network.pkl','rb'))
+def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent):
+    list_pickle = open('models/logisitic_depp_network.pkl','rb') 
+    trained_model_log = pickle.load(list_pickle)
     #predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
+    clear_session()
     return predict_log
-
-def pic():
-    pickle.close()
 """
 def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):
     
