@@ -12,23 +12,24 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="static/css/index.css">
-<title>Linear Regression Analysis</title>
+<title>Logistic Regression Analysis</title>
 
-<body>
+<body style="background-image: url('./static/images/background.jpg'); margin: 0; padding: 0;">
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
-  <div class="w3-display-topleft w3-padding-large w3-large">
-    <a button class="w3-button w3-round" style="color:black;" href="Cover.html">Home</button></a>
-  </div>
-  <div class="w3-display-middle">
-    <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Housing Predictions</b>
-    <h1><p<select name="Property_Code" id="Property_Code" class="form-control unstyled"></p> align="center" style="color:black;"> Select apartment information: </p></h1>
-    <hr class="w3-border-grey" style="margin:auto;width:50%">
-    <form class="w3-container" method=post name=userinput action="{{ url_for('logfunc')}}">
-    <p>
+    <div class="w3-display-topleft w3-padding-large w3-large">
+      <a button class="w3-button w3-round" style="color:black;" href="/">Home</button></a>
+      <a button class="w3-button w3-round" style="color:black;" href="linear">Linear Regression</button></a>
+    </div>
+    <div class="w3-display-middle">
+      <b class="w3-jumbo w3-animate-top w3-center" style="color:black;">Vacant or Occupied</b>
+      <h1><p align="center" style="color:black;"> Select property information: </p></h1>
+      <hr class="w3-border-grey" style="margin:auto;width:50%">
+      <form class="w3-container" method=post name=userinput action="{{ url_for('logfunc')}}">
+      <p>
       <div>
             <select name="Property_Code" id="Property_Code" class="form-control unstyled">
-            <option> Property </option>
+            <option> Property: </option>
             <option value="1" >Shady Haven</option>
             <option value="2" >Metro Park Gardens</option>
             <option value="3" >Friendly Homes</option>
@@ -39,7 +40,7 @@
       <div>
           <select name="BedRooms" id="BedRooms" class="form-control unstyled" placeholder="Sq ft">
             <option>
-                Bedroom
+                Bedrooms:
             </option>
             <option value="0" >0</option>
             <option value="1" >1</option>
@@ -50,7 +51,7 @@
       </div>
       <div>
         <select name="Bathroom" id="Bathroom" class="form-control unstyled" placeholder="Sq ft">
-            <option>Bathroom</option>
+            <option>Bathrooms:</option>
             <option value= "0" >0</option>
             <option value="1" >1</option>
             <option value="1.5" >1.5</option>
@@ -65,8 +66,8 @@
             <input type="number" class="form-control" name="SQFT" id="SQFT" placeholder="Sq ft">
       </div>
 
-      <div class="form-group form-group-sm">
-            <label for="exampleInputAmount" style="color:black;"> Rent</label>
+      <div class="form-group">
+            <label for="exampleInputAmount" style="color:black;"> Rent Change</label>
             <input type="number" name = "exampleInputAmount" class="form-control" id="exampleInputAmount" placeholder="Amount">
       </div>
 
@@ -75,8 +76,6 @@
       
 
     <p align="center">
-    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Linear Regression
-    </button> 
     <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Logistic Regression
     </button>
     </p>
