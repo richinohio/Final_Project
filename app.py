@@ -75,11 +75,15 @@ def logfunc():
     att2 = int(request.form['BedRooms'])
     att3 = float(request.form['Bathrooms'])
     att4 = int(request.form['SQFT'])
-    att5 = int(request.form['exampleInputAmount'])
-'''
+    att5 = int(request.form['RentChange'])
+
     #predictive function using model.prediction
-    vac_pred = prediction_log(apt1,apt2,apt3,apt4,att2,att3,att4)
-    return render_template('result_lin.html', result=vac_pred)
-'''
+    occ_pred = prediction_log()
+    if occ_pred == [0]:
+        occ_pred = "Occupied"
+    else:
+        occ_pred = "Vacant"
+    return render_template('result_log.html',result=occ_pred)
+
 if __name__ == '__main__':
     app.run(port=5000, debug=True)   

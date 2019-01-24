@@ -27,7 +27,7 @@ def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
     #result_lin="${:,.2f}".format(predict_lin)
     return predict_lin
 
-"""
+
 def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):
     
     # Create of row of data that comabines all user inputs
@@ -41,4 +41,3 @@ def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):
     predict_log = trained_model_log.predict(test_log)[0]
     result_log="${:,.2f}".format(predict_log)
     return result_log
-"""
