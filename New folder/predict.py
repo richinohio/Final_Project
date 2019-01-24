@@ -4,6 +4,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+from sklearn.ensemble import RandomForestClassifier
+from sklearn import tree
 from keras.utils import to_categorical
 from keras.models import Sequential
 from keras.layers import Dense
@@ -35,7 +37,7 @@ def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent):
     list_pickle = open('models/logisitic_depp_network.pkl','rb') 
     trained_model_log = pickle.load(list_pickle)
     #predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
-    predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
+    predict_log = trained_model_log.predict([[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]])
     clear_session()
     return predict_log
 """
