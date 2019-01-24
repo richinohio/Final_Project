@@ -29,12 +29,9 @@ def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
 
 
 def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent):
-    
-    #import pickled model
     list_pickle = open('models/logisitic_depp_network.pkl','rb') 
     trained_model_log = pickle.load(list_pickle)
-
-# Make prediction from the loaded model
+    #predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     clear_session()
     return predict_log
