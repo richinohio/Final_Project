@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, g, redirect, url_for, abort, \
      render_template, flash
 import os
-from predict import prediction_lin, prediction_log
+from predict import prediction_lin, prediction_log, pic
 
 import sys
 app = Flask(__name__)
@@ -78,8 +78,16 @@ def logfunc():
         apt2 =0
         apt3 =0
         apt4 =1
-    att2 = int(request.form['BedRooms'])
-    att3 = float(request.form['Bathroom'])
+    att2 = request.form['BedRooms']
+    if att2 =="0":
+        att2 = 0
+    else:
+        att2 = float(att2) 
+    att3 = request.form['Bathroom']
+    if att3 =="0":
+        att3 = 0
+    else:
+        att3 = float(att3)
     att4 = int(request.form['SQFT'])
     att5 = int(request.form['exampleInputAmount'])
     print(att4)
@@ -91,7 +99,7 @@ def logfunc():
         occ_pred = "Occupied"
     else:
         occ_pred = "Vacant"
-    return render_template('result_log.html',result=occ_pred)
+    return render_template('result_log.html',result=occ_pred), pic()
 """
 app2 = Flask(__name__)
 

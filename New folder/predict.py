@@ -34,6 +34,9 @@ def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent):
     #predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     predict_log = trained_model_log.predict_classes([[[SQFT,Bedrooms,Bathrooms,Rent,Property_Code1, p2,p3,p4]]])
     return predict_log
+
+def pic():
+    pickle.close()
 """
 def prediction_log(Property_Code, BedRooms, Bathroom,SQFT, chrent):
     
