@@ -10,6 +10,10 @@ app = Flask(__name__)
 def home():
     return render_template('cover.html')
 
+@app.route('/tableau')
+def charts():
+    return render_template('FinalTableau.html')
+
 @app.route('/linear', methods=['GET'])
 def linindex():
     return render_template('index_lin.html')
