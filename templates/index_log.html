@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8"">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/css/index.css">
+<title>Logistic Regression Analysis</title>
+
+<style>
+    .bgimg {
+      background-image: url("static/images/background.png");
+      min-height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+</style>
+
+
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
+    <div class="w3-display-topleft w3-padding-large w3-large">
+      <a button class="w3-button w3-round" style="color:black;" href="/">Home</button></a>
+      <a button class="w3-button w3-round" style="color:black;" href="linear">Linear Regression</button></a>
+    </div>
+    <div class="w3-display-middle">
+      <b class="w3-xxxlarge w3-animate-top w3-center" style="color:black;">Vacant or Occupied</b>
+      <h2><p align="center" style="color:black;"> Select property information: </p></h2>
+      <hr class="w3-border-grey" style="margin:auto;width:50%">
+      <form class="w3-container" method=post name=userinput action="{{ url_for('logfunc')}}">
+      <p>
+      <div>
+            <select name="Property_Code" id="Property_Code" class="form-control unstyled">
+            <option> Property: </option>
+            <option value="1" >Shady Haven</option>
+            <option value="2" >Metro Park Gardens</option>
+            <option value="3" >Friendly Homes</option>
+            <option value="4" >Community Estates</option>
+            
+        </select>
+      </div>
+      <div>
+          <select name="BedRooms" id="BedRooms" class="form-control unstyled" placeholder="Sq ft">
+            <option>
+                Bedrooms:
+            </option>
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+                              
+        </select>
+      </div>
+      <div>
+        <select name="Bathroom" id="Bathroom" class="form-control unstyled" placeholder="Sq ft">
+            <option>Bathrooms:</option>
+            <option value= "0" >0</option>
+            <option value="1" >1</option>
+            <option value="1.5" >1.5</option>
+            <option value="2" >2</option>
+            <option value="2.5" >2.5</option>
+                            
+        </select>
+      </div>
+      
+      <div class="form-group">
+            <label for="SQFT" style="color:black;">Square Footage</label>
+            <input type="number" class="form-control" name="SQFT" id="SQFT" placeholder="Sq ft">
+      </div>
+
+      <div class="form-group">
+            <label for="exampleInputAmount" style="color:black;"> Rent Change</label>
+            <input type="number" name = "exampleInputAmount" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      </div>
+
+     
+    
+      
+
+    <p align="center">
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Logistic Regression
+    </button>
+    </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

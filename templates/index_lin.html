@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/css/index.css">
+<title>Linear Regression Analysis</title>
+
+<style>
+.bgimg {
+  background-image: url("static/images/background.png");
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="container">
+  <div class="w3-display-topleft w3-padding-large w3-large">
+    <a button class="w3-button w3-round" style="color:black;" href="/">Home</button></a>
+    <a button class="w3-button w3-round" style="color:black;" href="logistic">Logistic Regression</button></a>
+  </div>
+  <div class="w3-display-middle">
+    <b class="w3-xxxlarge w3-animate-top w3-center" style="color:black;">Property Predictions</b>
+    <h2><p align="center" style="color:black;"> Select property information: </p></h2>
+    <hr class="w3-border-grey" style="margin:auto;width:50%">
+    <form class="w3-container" method=post name=userinput action="{{ url_for('linfunc')}}">
+    <p>
+      <div>
+          <select name="Property_Code" id="Property_Code" class="form-control unstyled">
+              <option>Property:</option>
+              <option value="0" >Shady Haven</option>
+              <option value="1" >Metro Park Gardens</option>
+              <option value="2" >Friendly Homes</option>
+              <option value="3" >Community Estates</option>
+            </select>
+      </div>
+      <div>
+          <select name="Bedrooms" id="Bedrooms" class="form-control unstyled">
+            <option>Bedrooms:</option>
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+                            
+        </select>
+      </div>
+      <div>
+          <select name="Bathrooms" id="Bathrooms" class="form-control unstyled">
+            <option>Bathrooms:</option>
+            <option value="0" >0</option>
+            <option value="1" >1</option>
+            <option value="1.5" >1.5</option>
+            <option value="2" >2</option>
+            <option value="2.5" >2.5</option>
+            <option value="3.0" >3.0</option>
+                            
+        </select>
+      </div>
+
+      <div class="form-group">
+          <label for="SQFT" style="color:black;">Square Footage</label>
+          <input type="number" class="form-control" name="SQFT" id="SQFT" placeholder="Sq ft">
+      </div>
+      <!--
+      <div>
+         <select name="SQFT" id="SQFT" class="form-control unstyled">
+           <option>Square Footage:</option>
+           <option value="400" >400</option>
+           <option value="500" >500</option>
+           <option value="600" >600</option>
+           <option value="700" >700</option>
+           <option value="800" >800</option>
+           <option value="900" >900</option>
+           <option value="1000" >1000</option>
+           <option value="1100" >1100</option>
+           <option value="1200" >1200</option>
+           <option value="1300" >1300</option>
+           <option value="1400" >1400</option>
+           <option value="1500" >1500</option>                
+         </select>
+     </div>
+     -->
+
+    <p align="center">
+    <button type="submit" class="w3-button w3-round w3-black" style="color:black;" > Linear Regression
+    </button> 
+    </p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+body,h1 {
+    font-family: "Raleway", sans-serif
+}
+body, html {
+    height: 100%
+}
+.bgimg {
+    background-image: url("static/images/background.png");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.image {
+	position: relative;
+	margin: 15px 15px;
+}
+.unstyled {
+	width:70%;
+	border: none;
+	background-color: rgba(255,255,255,.6)
+}
+.roundbutton {
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 2px;
+    border-radius: 50%;
+    color:inherit;
+    background-color:inherit;
+}
+.opacity{animation:opac 1.0s} opac{from{opacity:0} to{opacity:1}}
