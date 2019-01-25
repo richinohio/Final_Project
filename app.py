@@ -22,25 +22,25 @@ def linindex():
 def linfunc():
     att1 = int(request.form['Property_Code'])
     if att1 == 0:
-        apt1 =1
-        apt2 =0
-        apt3 =0
-        apt4 =0
-    elif att1 ==1:
-        apt1 =0
-        apt2 =1
-        apt3 =0
-        apt4 =0
-    elif att1 ==2:
-        apt1 =0
-        apt2 =0
-        apt3 =1
-        apt4 =0
-    elif att1 ==3:
         apt1 =0
         apt2 =0
         apt3 =0
         apt4 =1
+    elif att1 ==1:
+        apt1 =0
+        apt2 =0
+        apt3 =1
+        apt4 =0
+    elif att1 ==2:
+        apt1 =0
+        apt2 =1
+        apt3 =0
+        apt4 =0
+    elif att1 ==3:
+        apt1 =1
+        apt2 =0
+        apt3 =0
+        apt4 =0
     att2 = int(request.form['Bedrooms'])
     att3 = float(request.form['Bathrooms'])
     att4 = int(request.form['SQFT'])

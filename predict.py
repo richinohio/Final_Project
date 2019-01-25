@@ -25,7 +25,7 @@ def prediction_lin(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT):
     # Make prediction from the loaded model
     predict_lin = trained_model_lin.predict([[Property_Code1,p2,p3,p4,Bedrooms,Bathrooms,SQFT]])
     #result_lin="${:,.2f}".format(predict_lin)
-    return predict_lin
+    return round(predict_lin[0][0],2)
 
 
 def prediction_log(Property_Code1, p2,p3,p4, Bedrooms, Bathrooms,SQFT,Rent):
